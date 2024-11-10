@@ -1,5 +1,5 @@
 
-const X3D = require ("../src/index");
+const X3D = require ("..");
 
 test ("X3D", () =>
 {

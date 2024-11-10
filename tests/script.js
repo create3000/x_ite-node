@@ -1,4 +1,4 @@
-const X3D = require ("../src/index");
+const X3D = require ("..");
 
 const
    canvas  = X3D .createBrowser (),
