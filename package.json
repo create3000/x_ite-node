@@ -1,0 +1,17 @@
+{
+  "name": "x_ite-node",
+  "version": "1.0.0",
+  "description": "Pure node version of X_ITE",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Holger Seelig <holger.seelig@gmail.com>",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "x_ite": "^10.5.10"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
