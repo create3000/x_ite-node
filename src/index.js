@@ -3,7 +3,6 @@
 require ("jsdom-global") ();
 
 const
-
    { LocalStorage } = require ("node-localstorage"),
    path             = require ("path"),
    fs               = require ("fs"),
@@ -26,7 +25,10 @@ Object .defineProperties (window,
    },
 });
 
-global .require = require;
+window .customElements = { define: function () { } };
+
+global .require        = require;
+global .customElements = window .customElements;
 
 // X_ITE
 
