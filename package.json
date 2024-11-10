@@ -9,6 +9,7 @@
   "author": "Holger Seelig <holger.seelig@gmail.com>",
   "license": "GPL-3.0",
   "dependencies": {
+    "jsdom": "^25.0.1",
     "x_ite": "^10.5.10"
   },
   "devDependencies": {
