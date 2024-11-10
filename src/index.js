@@ -12,11 +12,8 @@ const tmp = fs .mkdtempSync (path  .join (os .tmpdir (), "x_ite"));
 
 window .require = require;
 
-
 Object .defineProperties (window,
 {
-   // require
-   require: require,
    // storages
    localStorage:
    {
