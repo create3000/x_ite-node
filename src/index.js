@@ -9,7 +9,7 @@ const
    os               = require ("os"),
    tmp              = fs .mkdtempSync (path  .join (os .tmpdir (), "x_ite"));
 
-// Storages
+// Window
 
 Object .defineProperties (window,
 {
@@ -26,6 +26,8 @@ Object .defineProperties (window,
 });
 
 window .customElements = { define: function () { } };
+
+// Global
 
 global .require        = require;
 global .customElements = window .customElements;
