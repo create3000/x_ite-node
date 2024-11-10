@@ -19,9 +19,10 @@ test ("nodes", async () =>
 {
    const canvas  = X3D .createBrowser ();
    const browser = canvas .browser;
+   const scene   = browser .currentScene;
 
    await browser .loadComponents (browser .getProfile ("Full"));
 
    for (const ConcreteNode of browser .concreteNodes)
-      expect (new ConcreteNode ()) .toBeInstanceOf (ConcreteNode);
+      expect (new ConcreteNode (scene)) .toBeInstanceOf (ConcreteNode);
 });
