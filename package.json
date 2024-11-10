@@ -1,7 +1,7 @@
 {
   "name": "x_ite-node",
   "version": "1.0.0",
-  "description": "Pure node version of X_ITE",
+  "description": "Pure Node.js wrapper of X_ITE",
   "main": "src/index.js",
   "engines": {
     "node": ">=23.1.0"
@@ -13,6 +13,31 @@
     "test-script": "node tests/script.js",
     "test": "jest"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/create3000/x_ite-node.git"
+  },
+  "keywords": [
+    "3D",
+    "Browser",
+    "Electron",
+    "Framework",
+    "GLB",
+    "glTF2",
+    "JavaScript",
+    "JSON",
+    "Node",
+    "PLY",
+    "STL",
+    "SVG",
+    "VRML",
+    "Wavefront-OBJ",
+    "WebGL",
+    "wrl",
+    "x_ite",
+    "X3D",
+    "XML"
+  ],
   "author": "Holger Seelig <holger.seelig@gmail.com>",
   "license": "GPL-3.0",
   "dependencies": {
