@@ -7,6 +7,7 @@ require ("jsdom-global") ();
 const
    { LocalStorage } = require ("node-localstorage"),
    path             = require ("path"),
+   url              = require ("url"),
    fs               = require ("fs"),
    os               = require ("os"),
    tmp              = fs .mkdtempSync (path  .join (os .tmpdir (), "x_ite"));
@@ -65,7 +66,30 @@ Object .defineProperties (window,
    },
    fetch:
    {
-      value: (... args) => import ("node-fetch") .then (({ default: fetch }) => fetch (... args)),
+      value: function (resource, options)
+      {
+         const parsedURL = new URL (resource);
+
+         if (parsedURL .protocol === "file:")
+         {
+            return new Promise ((resolve, reject) =>
+            {
+               const filePath = url .fileURLToPath (parsedURL);
+
+               fs .readFile (filePath, (error, data) =>
+               {
+                  if (error)
+                     reject (error);
+                  else
+                     resolve (new Response (data));
+               });
+            });
+         }
+         else
+         {
+            return import ("node-fetch") .then (({ default: fetch }) => fetch (resource, options));
+         }
+      },
       configurable: true,
       writable: true,
       enumerable: true,
