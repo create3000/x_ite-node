@@ -7,7 +7,7 @@ const
 
 async function main ()
 {
-   await browser .loadComponents (browser .getProfile ("Interactive"));
+   await browser .loadComponents (browser .getProfile ("Full"));
 
    // for (const ConcreteNode of browser .concreteNodes)
    //    console .log (ConcreteNode .typeName);

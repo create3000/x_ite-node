@@ -36,16 +36,9 @@ Object .defineProperties (window,
       configurable: true,
       writable: true,
    },
-   localStorage:
+   atob:
    {
-      value: new LocalStorage (path .join (tmp, "Local Storage")),
-      configurable: true,
-      writable: true,
-      enumerable: true,
-   },
-   sessionStorage:
-   {
-      value: new LocalStorage (path .join (tmp, "Session Storage")),
+      value: require ("atob"),
       configurable: true,
       writable: true,
       enumerable: true,
@@ -53,13 +46,6 @@ Object .defineProperties (window,
    customElements:
    {
       value: { define: Function .prototype },
-      configurable: true,
-      writable: true,
-      enumerable: true,
-   },
-   requestAnimationFrame:
-   {
-      value: Function .prototype,
       configurable: true,
       writable: true,
       enumerable: true,
@@ -94,6 +80,27 @@ Object .defineProperties (window,
       writable: true,
       enumerable: true,
    },
+   localStorage:
+   {
+      value: new LocalStorage (path .join (tmp, "Local Storage")),
+      configurable: true,
+      writable: true,
+      enumerable: true,
+   },
+   requestAnimationFrame:
+   {
+      value: Function .prototype,
+      configurable: true,
+      writable: true,
+      enumerable: true,
+   },
+   sessionStorage:
+   {
+      value: new LocalStorage (path .join (tmp, "Session Storage")),
+      configurable: true,
+      writable: true,
+      enumerable: true,
+   },
 });
 
 // Global
@@ -112,25 +119,11 @@ Object .defineProperties (global,
       configurable: true,
       writable: true,
    },
-   require:
+   atob:
    {
-      value: require,
+      value: window .atob,
       configurable: true,
       writable: true,
-   },
-   localStorage:
-   {
-      value: window .localStorage,
-      configurable: true,
-      writable: true,
-      enumerable: true,
-   },
-   sessionStorage:
-   {
-      value: window .sessionStorage,
-      configurable: true,
-      writable: true,
-      enumerable: true,
    },
    customElements:
    {
@@ -142,6 +135,26 @@ Object .defineProperties (global,
    fetch:
    {
       value: window .fetch,
+      configurable: true,
+      writable: true,
+      enumerable: true,
+   },
+   localStorage:
+   {
+      value: window .localStorage,
+      configurable: true,
+      writable: true,
+      enumerable: true,
+   },
+   require:
+   {
+      value: require,
+      configurable: true,
+      writable: true,
+   },
+   sessionStorage:
+   {
+      value: window .sessionStorage,
       configurable: true,
       writable: true,
       enumerable: true,
@@ -223,6 +236,8 @@ X3D .Context .create = function (canvas, version, preserveDrawingBuffer, mobile)
       getVersion: function () { return 2; },
       blendEquationSeparate: Function .prototype,
       blendFuncSeparate: Function .prototype,
+      copyBufferSubData: Function .prototype,
+      createTransformFeedback: Function .prototype,
       drawBuffers: Function .prototype,
       renderbufferStorageMultisample: Function .prototype,
       texImage3D: Function .prototype,

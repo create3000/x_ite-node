@@ -16,6 +16,7 @@
   "author": "Holger Seelig <holger.seelig@gmail.com>",
   "license": "GPL-3.0",
   "dependencies": {
+    "atob": "^2.1.2",
     "jsdom": "^25.0.1",
     "jsdom-global": "^3.0.2",
     "node-fetch": "^3.3.2",
