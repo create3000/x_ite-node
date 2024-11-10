@@ -6,6 +6,9 @@
   "engines": {
     "node": ">=23.1.0"
   },
+  "files": [
+    "src/*"
+  ],
   "scripts": {
     "test-script": "node tests/script.js",
     "test": "jest"
