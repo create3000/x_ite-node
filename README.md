@@ -19,8 +19,9 @@ const
    browser = canvas .browser,
    scene   = browser .currentScene;
 
-await browser .loadComponents (browser .getProfile ("Full"));
+await browser .loadComponents (browser .getProfile ("Interactive"));
 
+scene .setProfile (browser .getProfile ("Interactive"));
 scene .rootNodes .push (scene .createNode ("Transform"));
 ...
 
