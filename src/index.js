@@ -33,6 +33,10 @@ Object .defineProperties (window,
 
 Object .assign (global, window);
 
+// HTMLElement
+
+global .HTMLElement = window .HTMLElement;
+
 // X_ITE
 
 const X3D = require ("x_ite");
