@@ -63,6 +63,13 @@ Object .defineProperties (window,
       writable: true,
       enumerable: true,
    },
+   fetch:
+   {
+      value: (... args) => import ("node-fetch") .then (({ default: fetch }) => fetch (... args)),
+      configurable: true,
+      writable: true,
+      enumerable: true,
+   },
 });
 
 // Global
@@ -104,6 +111,13 @@ Object .defineProperties (global,
    customElements:
    {
       value: window .customElements,
+      configurable: true,
+      writable: true,
+      enumerable: true,
+   },
+   fetch:
+   {
+      value: window .fetch,
       configurable: true,
       writable: true,
       enumerable: true,
