@@ -151,9 +151,9 @@ Object .defineProperties (global,
 // Web Audio Shim
 
 const audioNodes = [
-   "AudioContext",
    "AnalyserNode",
    "Audio",
+   "AudioContext",
    "BiquadFilterNode",
    "ChannelMergerNode",
    "ChannelSplitterNode",
@@ -168,22 +168,22 @@ const audioNodes = [
 
 class AudioNode {
    connect () { return this; }
-   disconnect () { }
    createBuffer () { return new AudioNode (); }
    createMediaElementSource () { return new AudioNode (); }
    createMediaStreamDestination () { return new AudioNode (); }
+   disconnect () { }
    async play () { }
    async resume () { }
-   get destination () { return { maxChannelCount: 2 } }
    get attack () { return { } }
+   get destination () { return { maxChannelCount: 2 } }
+   get detune () { return { } }
+   get frequency () { return { } }
+   get gain () { return { } }
    get knee () { return { } }
+   get Q () { return { } }
    get ratio () { return { } }
    get release () { return { } }
    get threshold () { return { } }
-   get gain () { return { } }
-   get detune () { return { } }
-   get frequency () { return { } }
-   get Q () { return { } }
 }
 
 Object .defineProperties (window, Object .fromEntries (audioNodes .map (name => [name,
