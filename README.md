@@ -21,7 +21,10 @@ const
 
 async function main ()
 {
-   await browser .loadComponents (browser .getProfile ("Interactive"));
+   scene .setProfile (browser .getProfile ("Interchange"));
+   scene .addComponent (browser .getComponent ("Interpolation", 1));
+
+   await browser .loadComponents (scene);
 
    scene .setProfile (browser .getProfile ("Interactive"));
    scene .rootNodes .push (scene .createNode ("Transform"));
