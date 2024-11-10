@@ -180,6 +180,7 @@ const audioNodes = [
 ];
 
 class AudioNode {
+   #listener;
    connect () { return this; }
    createBuffer () { return new AudioNode (); }
    createMediaElementSource () { return new AudioNode (); }
@@ -188,15 +189,29 @@ class AudioNode {
    async play () { }
    async resume () { }
    get attack () { return { } }
-   get destination () { return { maxChannelCount: 2 } }
+   get delayTime () { return { } }
+   get destination () { return { maxChannelCount: 2 }; }
    get detune () { return { } }
+   get forwardX () { return { } }
+   get forwardY () { return { } }
+   get forwardZ () { return { } }
    get frequency () { return { } }
    get gain () { return { } }
    get knee () { return { } }
+   get listener () { return this .#listener ??= new AudioNode (); }
+   get orientationX () { return { } }
+   get orientationY () { return { } }
+   get orientationZ () { return { } }
+   get positionX () { return { } }
+   get positionY () { return { } }
+   get positionZ () { return { } }
    get Q () { return { } }
    get ratio () { return { } }
    get release () { return { } }
    get threshold () { return { } }
+   get upX () { return { } }
+   get upY () { return { } }
+   get upZ () { return { } }
 }
 
 Object .defineProperties (window, Object .fromEntries (audioNodes .map (name => [name,
