@@ -1,17 +1,14 @@
 // JSDOM
 
+require ("jsdom-global") ();
+
 const
-   { JSDOM }         = require ("jsdom"),
-   { window }       = new JSDOM (),
+
    { LocalStorage } = require ("node-localstorage"),
    path             = require ("path"),
    fs               = require ("fs"),
    os               = require ("os"),
    tmp              = fs .mkdtempSync (path  .join (os .tmpdir (), "x_ite"));
-
-// Node `require`.
-
-window .require = require;
 
 // Storages
 
@@ -29,13 +26,7 @@ Object .defineProperties (window,
    },
 });
 
-// Window
-
-Object .assign (global, window);
-
-// HTMLElement
-
-global .HTMLElement = window .HTMLElement;
+global .require = require;
 
 // X_ITE
 

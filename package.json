@@ -13,6 +13,7 @@
   "license": "GPL-3.0",
   "dependencies": {
     "jsdom": "^25.0.1",
+    "jsdom-global": "^3.0.2",
     "node-localstorage": "^3.0.5",
     "x_ite": "^10.5.10"
   },
