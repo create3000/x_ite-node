@@ -148,6 +148,58 @@ Object .defineProperties (global,
    },
 });
 
+// Web Audio Shim
+
+const audioNodes = [
+   "AudioContext",
+   "AnalyserNode",
+   "Audio",
+   "BiquadFilterNode",
+   "ChannelMergerNode",
+   "ChannelSplitterNode",
+   "ConvolverNode",
+   "DelayNode",
+   "DynamicsCompressorNode",
+   "GainNode",
+   "MediaStreamAudioDestinationNode",
+   "PannerNode",
+   "WaveShaperNode",
+];
+
+class AudioNode {
+   connect () { return this; }
+   disconnect () { }
+   createBuffer () { return new AudioNode (); }
+   createMediaElementSource () { return new AudioNode (); }
+   createMediaStreamDestination () { return new AudioNode (); }
+   async play () { }
+   async resume () { }
+   get destination () { return { maxChannelCount: 2 } }
+   get attack () { return { } }
+   get knee () { return { } }
+   get ratio () { return { } }
+   get release () { return { } }
+   get threshold () { return { } }
+   get gain () { return { } }
+   get detune () { return { } }
+   get frequency () { return { } }
+   get Q () { return { } }
+}
+
+Object .defineProperties (window, Object .fromEntries (audioNodes .map (name => [name,
+{
+   value: class extends AudioNode { },
+   configurable: true,
+   writable: true,
+}])));
+
+Object .defineProperties (global, Object .fromEntries (audioNodes .map (name => [name,
+{
+   value: window [name],
+   configurable: true,
+   writable: true,
+}])));
+
 // X_ITE
 
 const
