@@ -48,6 +48,20 @@ Object .defineProperties (global,
       configurable: true,
       writable: true,
    },
+   localStorage:
+   {
+      value: window .localStorage,
+      configurable: true,
+      writable: true,
+      enumerable: true,
+   },
+   sessionStorage:
+   {
+      value: window .sessionStorage,
+      configurable: true,
+      writable: true,
+      enumerable: true,
+   },
    customElements:
    {
       value: window .customElements,
@@ -59,6 +73,17 @@ Object .defineProperties (global,
 
 // X_ITE
 
-const X3D = require ("x_ite");
+const
+   X3D           = require ("x_ite"),
+   createBrowser = X3D .createBrowser;
+
+X3D .createBrowser = function (... args)
+{
+   const canvas = createBrowser .apply (X3D, args);
+
+   canvas .browser = new X3D .X3DBrowser (canvas);
+
+   return canvas;
+};
 
 module .exports = X3D;
