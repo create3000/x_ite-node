@@ -19,11 +19,16 @@ const
    browser = canvas .browser,
    scene   = browser .currentScene;
 
-await browser .loadComponents (browser .getProfile ("Interactive"));
+async function main ()
+{
+   await browser .loadComponents (browser .getProfile ("Interactive"));
 
-scene .setProfile (browser .getProfile ("Interactive"));
-scene .rootNodes .push (scene .createNode ("Transform"));
-...
+   scene .setProfile (browser .getProfile ("Interactive"));
+   scene .rootNodes .push (scene .createNode ("Transform"));
+   ...
 
-console .log (scene .toXMLString ());
+   console .log (scene .toXMLString ());
+}
+
+main ();
 ```
