@@ -23,9 +23,12 @@ Object .defineProperties (window,
       value: new LocalStorage (path .join (tmp, "Session Storage")),
       configurable: true,
    },
+   customElements:
+   {
+      value: { define: function () { } },
+      configurable: true,
+   },
 });
-
-window .customElements = { define: function () { } };
 
 // Global
 
