@@ -6,15 +6,17 @@ const
    { LocalStorage } = require ("node-localstorage"),
    path             = require ("path"),
    fs               = require ("fs"),
-   os               = require ("os");
+   os               = require ("os"),
+   tmp              = fs .mkdtempSync (path  .join (os .tmpdir (), "x_ite"));
 
-const tmp = fs .mkdtempSync (path  .join (os .tmpdir (), "x_ite"));
+// Node `require`.
 
 window .require = require;
 
+// Storages
+
 Object .defineProperties (window,
 {
-   // storages
    localStorage:
    {
       value: new LocalStorage (path .join (tmp, "Local Storage")),
