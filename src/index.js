@@ -86,4 +86,9 @@ X3D .createBrowser = function (... args)
    return canvas;
 };
 
+X3D .Context .create = function (canvas, version, preserveDrawingBuffer, mobile)
+{
+
+};
+
 module .exports = X3D;
