@@ -15,6 +15,26 @@ const
 
 Object .defineProperties (window,
 {
+   MutationObserver:
+   {
+      value: class
+      {
+         observe () { }
+         disconnect () { }
+      },
+      configurable: true,
+      writable: true,
+   },
+   ResizeObserver:
+   {
+      value: class
+      {
+         observe () { }
+         disconnect () { }
+      },
+      configurable: true,
+      writable: true,
+   },
    localStorage:
    {
       value: new LocalStorage (path .join (tmp, "Local Storage")),
@@ -31,7 +51,14 @@ Object .defineProperties (window,
    },
    customElements:
    {
-      value: { define: function () { } },
+      value: { define: Function .prototype },
+      configurable: true,
+      writable: true,
+      enumerable: true,
+   },
+   requestAnimationFrame:
+   {
+      value: Function .prototype,
       configurable: true,
       writable: true,
       enumerable: true,
@@ -42,6 +69,18 @@ Object .defineProperties (window,
 
 Object .defineProperties (global,
 {
+   MutationObserver:
+   {
+      value: window .MutationObserver,
+      configurable: true,
+      writable: true,
+   },
+   ResizeObserver:
+   {
+      value: window .ResizeObserver,
+      configurable: true,
+      writable: true,
+   },
    require:
    {
       value: require,
@@ -75,7 +114,8 @@ Object .defineProperties (global,
 
 const
    X3D           = require ("x_ite"),
-   createBrowser = X3D .createBrowser;
+   createBrowser = X3D .createBrowser,
+   gl            = require ("nogl");
 
 X3D .createBrowser = function (... args)
 {
@@ -88,9 +128,15 @@ X3D .createBrowser = function (... args)
 
 X3D .Context .create = function (canvas, version, preserveDrawingBuffer, mobile)
 {
-   const gl = { };
-
-   return gl;
+   return Object .assign (gl (),
+   {
+      getVersion: function () { return 2; },
+      blendEquationSeparate: Function .prototype,
+      blendFuncSeparate: Function .prototype,
+      drawBuffers: Function .prototype,
+      renderbufferStorageMultisample: Function .prototype,
+      texImage3D: Function .prototype,
+   });
 };
 
 module .exports = X3D;
