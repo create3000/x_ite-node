@@ -160,14 +160,12 @@ Object .defineProperties (global,
       configurable: true,
       writable: true,
    },
-   // functions
+   // classes
    ... Object .fromEntries ([
       "Blob",
       "FileReader",
       "MutationObserver",
       "ResizeObserver",
-      "atob",
-      "fetch",
    ]
    .map (name => [name,
    {
@@ -175,9 +173,11 @@ Object .defineProperties (global,
       configurable: true,
       writable: true,
    }])),
-   // properties
+   // functions and properties
    ... Object .fromEntries ([
+      "atob",
       "customElements",
+      "fetch",
       "localStorage",
       "sessionStorage",
    ]
