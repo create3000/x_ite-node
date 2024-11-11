@@ -40,6 +40,17 @@
   ],
   "author": "Holger Seelig <holger.seelig@gmail.com>",
   "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/create3000/x_ite-node/issues"
+  },
+  "homepage": "https://github.com/create3000/x_ite-node",
+  "contributors": [
+    {
+      "name": "Holger Seelig",
+      "email": "holger.seelig@gmail.com",
+      "url": "https://github.com/create3000"
+    }
+  ],
   "dependencies": {
     "atob": "^2.1.2",
     "jsdom": "^25.0.1",
