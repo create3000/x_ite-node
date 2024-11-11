@@ -291,6 +291,26 @@ Object .defineProperties (global, Object .fromEntries (audioNodes .map (name => 
 
 global .XMLDocument = window .Document;
 
+// 2D Context
+
+const getContext = HTMLCanvasElement .prototype .getContext;
+
+HTMLCanvasElement .prototype .getContext = function (... args)
+{
+   if (args [0] === "2d")
+   {
+      const { createCanvas } = require ("canvas");
+
+      const canvas = createCanvas (200, 200);
+
+      return canvas .getContext ("2d");
+   }
+   else
+   {
+      return getContext .call (this, ... args);
+   }
+};
+
 // X_ITE
 
 const
