@@ -43,6 +43,7 @@ Object .defineProperties (window,
                      buffer = Buffer .from (await blob .arrayBuffer ());
 
                   this .onload ?.({ target: { result: `data:${blob .type};base64,${buffer .toString ("base64")}` }});
+                  return;
                }
                else
                {
