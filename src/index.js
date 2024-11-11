@@ -160,6 +160,7 @@ Object .defineProperties (global,
       configurable: true,
       writable: true,
    },
+   // functions
    ... Object .fromEntries ([
       "Blob",
       "FileReader",
@@ -174,6 +175,7 @@ Object .defineProperties (global,
       configurable: true,
       writable: true,
    }])),
+   // properties
    ... Object .fromEntries ([
       "customElements",
       "localStorage",
