@@ -12,8 +12,8 @@ async function main ()
    // for (const ConcreteNode of browser .concreteNodes)
    //    console .log (ConcreteNode .typeName);
 
-   // for (const ConcreteNode of browser .concreteNodes)
-   //    console .log (scene .createNode (ConcreteNode .typeName) .toVRMLString ());
+   for (const ConcreteNode of browser .concreteNodes)
+      console .log (scene .createNode (ConcreteNode .typeName) .toVRMLString ());
 }
 
 main ();

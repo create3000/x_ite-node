@@ -43,6 +43,13 @@ Object .defineProperties (window,
       writable: true,
       enumerable: true,
    },
+   cancelAnimationFrame:
+   {
+      value: clearTimeout,
+      configurable: true,
+      writable: true,
+      enumerable: true,
+   },
    customElements:
    {
       value: { define: Function .prototype },
@@ -259,6 +266,7 @@ const glFunctions = Object .fromEntries ([
    "drawBuffers",
    "renderbufferStorageMultisample",
    "texImage3D",
+   "transformFeedbackVaryings",
    "uniform1f",
    "uniform3f",
    "uniformMatrix4fv",
@@ -268,11 +276,10 @@ const glFunctions = Object .fromEntries ([
 
 X3D .Context .create = function (canvas, version, preserveDrawingBuffer, mobile)
 {
-   return Object .assign (gl (),
+   return Object .assign (gl (), glFunctions,
    {
       getVersion: function () { return 2; },
-   },
-   glFunctions);
+   });
 };
 
 module .exports = X3D;
