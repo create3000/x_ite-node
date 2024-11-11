@@ -37,25 +37,28 @@ test ("load Box", async () =>
    expect (scene .rootNodes) .toHaveLength (5);
 });
 
-// test ("load media examples", async () =>
-// {
-//    const
-//       response = await fetch (`https://create3000.github.io/media/examples/config.json`),
-//       examples = JSON .parse (await response .text ());
+test ("load media examples", async () =>
+{
+   const
+      media    = `https://create3000.github.io/media/examples`,
+      response = await fetch (`${media}/config.json`),
+      examples = JSON .parse (await response .text ());
 
-//    expect (examples) .toBeInstanceOf (Array);
+   expect (examples) .toBeInstanceOf (Array);
 
-//    const canvas  = X3D .createBrowser ();
-//    const browser = canvas .browser;
+   const canvas  = X3D .createBrowser ();
+   const browser = canvas .browser;
 
-//    await browser .loadComponents (browser .getProfile ("Full"));
+   await browser .loadComponents (browser .getProfile ("Full"));
 
-//    for (const { name, component } of examples)
-//    {
-//       const scene = await browser .createX3DFromURL (new X3D .MFString (`https://create3000.github.io/media/examples/${component}/${name}/${name}.x3d`));
+   await Promise .all (examples .map (async ({ name, component }) =>
+   {
+      console .log (component, name);
 
-//       expect (scene .encoding) .toBe ("XML");
-//       expect (scene .rootNodes) .not .toHaveLength (0);
-//    }
-// },
-// 60_000);
+      const scene = await browser .createX3DFromURL (new X3D .MFString (`${media}/${component}/${name}/${name}.x3d`));
+
+      expect (scene .encoding) .toBe ("XML");
+      expect (scene .rootNodes) .not .toHaveLength (0);
+   }));
+},
+/* min */ 10 * 60 * 1000);

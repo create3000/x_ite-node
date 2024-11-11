@@ -195,6 +195,7 @@ Object .defineProperties (global,
 const audioNodes = [
    "AnalyserNode",
    "Audio",
+   "AudioBufferSourceNode",
    "AudioContext",
    "BiquadFilterNode",
    "ChannelMergerNode",
@@ -214,6 +215,7 @@ class AudioNode {
    createBuffer () { return new AudioNode (); }
    createMediaElementSource () { return new AudioNode (); }
    createMediaStreamDestination () { return new AudioNode (); }
+   decodeAudioData () { return new AudioNode (); }
    disconnect () { }
    async play () { }
    async resume () { }
@@ -231,6 +233,7 @@ class AudioNode {
    get orientationX () { return { } }
    get orientationY () { return { } }
    get orientationZ () { return { } }
+   get playbackRate () { return { } }
    get positionX () { return { } }
    get positionY () { return { } }
    get positionZ () { return { } }
