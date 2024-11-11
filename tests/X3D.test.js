@@ -26,3 +26,12 @@ test ("nodes", async () =>
    for (const ConcreteNode of browser .concreteNodes)
       expect (new ConcreteNode (scene)) .toBeInstanceOf (ConcreteNode);
 });
+
+test ("load Box", async () =>
+{
+   const canvas  = X3D .createBrowser ();
+   const browser = canvas .browser;
+   const scene   = await browser .createX3DFromURL (new X3D .MFString ("https://create3000.github.io/media/examples/Geometry3D/Box/Box.x3d"));
+
+   expect (scene .rootNodes) .toHaveLength (5);
+});

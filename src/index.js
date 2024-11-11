@@ -73,7 +73,7 @@ Object .defineProperties (window,
          }
          else
          {
-            return import ("node-fetch") .then (({ default: fetch }) => fetch (resource, options));
+            return require ("node-fetch") (resource, options);
          }
       },
       configurable: true,
@@ -89,7 +89,7 @@ Object .defineProperties (window,
    },
    requestAnimationFrame:
    {
-      value: Function .prototype,
+      value: callback => setTimeout (() => callback (performance .now ()), 0),
       configurable: true,
       writable: true,
       enumerable: true,
@@ -228,6 +228,10 @@ Object .defineProperties (global, Object .fromEntries (audioNodes .map (name => 
    writable: true,
 }])));
 
+// XML
+
+global .XMLDocument = window .Document;
+
 // X_ITE
 
 const
@@ -249,13 +253,20 @@ X3D .Context .create = function (canvas, version, preserveDrawingBuffer, mobile)
    return Object .assign (gl (),
    {
       getVersion: function () { return 2; },
+      bindVertexArray: Function .prototype,
       blendEquationSeparate: Function .prototype,
       blendFuncSeparate: Function .prototype,
+      blitFramebuffer: Function .prototype,
       copyBufferSubData: Function .prototype,
       createTransformFeedback: Function .prototype,
+      createVertexArray: Function .prototype,
       drawBuffers: Function .prototype,
       renderbufferStorageMultisample: Function .prototype,
       texImage3D: Function .prototype,
+      uniform1f: Function .prototype,
+      uniform3f: Function .prototype,
+      uniformMatrix4fv: Function .prototype,
+      vertexAttribDivisor: Function .prototype,
    });
 };
 
