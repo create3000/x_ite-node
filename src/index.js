@@ -1,5 +1,7 @@
 // JSDOM
 
+const BlobClass = Blob;
+
 require ("jsdom-global") ();
 
 // Preparations
@@ -10,12 +12,48 @@ const
    url              = require ("url"),
    fs               = require ("fs"),
    os               = require ("os"),
-   tmp              = fs .mkdtempSync (path  .join (os .tmpdir (), "x_ite"));
+   tmp              = fs .mkdtempSync (path .join (os .tmpdir (), "x_ite"));
 
 // Window
 
 Object .defineProperties (window,
 {
+   Blob:
+   {
+      value: BlobClass,
+      configurable: true,
+      writable: true,
+   },
+   FileReader:
+   {
+      value: class extends require ("filereader")
+      {
+         constructor ()
+         {
+            super ();
+
+            const readAsDataURL = this .readAsDataURL;
+
+            this .readAsDataURL = async function (... args)
+            {
+               if (args [0] instanceof Blob)
+               {
+                  const
+                     blob   = args [0],
+                     buffer = Buffer .from (await blob .arrayBuffer ());
+
+                  this .onload ?.({ target: { result: `data:${blob .type};base64,${buffer .toString ("base64")}` }});
+               }
+               else
+               {
+                  return await readAsDataURL .call (this, ... args);
+               }
+            };
+         }
+      },
+      configurable: true,
+      writable: true,
+   },
    MutationObserver:
    {
       value: class
@@ -114,6 +152,18 @@ Object .defineProperties (window,
 
 Object .defineProperties (global,
 {
+   Blob:
+   {
+      value: window .Blob,
+      configurable: true,
+      writable: true,
+   },
+   FileReader:
+   {
+      value: window .FileReader,
+      configurable: true,
+      writable: true,
+   },
    MutationObserver:
    {
       value: window .MutationObserver,
