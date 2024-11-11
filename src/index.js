@@ -242,25 +242,27 @@ global .XMLDocument = window .Document;
 // X_ITE
 
 const
-   X3D           = require ("x_ite"),
-   createBrowser = X3D .createBrowser,
-   gl            = require ("nogl");
+   X3D = require ("x_ite"),
+   gl  = require ("nogl");
 
-X3D .createBrowser = function (... args)
+X3D .createBrowser = function (url, parameter)
 {
-   const canvas = createBrowser .apply (X3D, args);
+   const element = window .document .createElement ("x3d-canvas");
 
-   canvas .setAttribute ("splashScreen",  false);
-   canvas .setAttribute ("notifications", false);
-   canvas .setAttribute ("timings",       false);
+   element .setAttribute ("splashScreen",  false);
+   element .setAttribute ("notifications", false);
+   element .setAttribute ("timings",       false);
 
-   Object .defineProperty (canvas, "browser",
+   Object .defineProperty (element, "browser",
    {
-      value: new X3D .X3DBrowser (canvas),
+      value: new X3D .X3DBrowser (element),
       enumerable: true,
    });
 
-   return canvas;
+   if (arguments .length)
+      element .browser .loadURL (url, parameter);
+
+   return element;
 };
 
 const glFunctions = Object .fromEntries ([
