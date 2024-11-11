@@ -248,26 +248,31 @@ X3D .createBrowser = function (... args)
    return canvas;
 };
 
+const glFunctions = Object .fromEntries ([
+   "bindVertexArray",
+   "blendEquationSeparate",
+   "blendFuncSeparate",
+   "blitFramebuffer",
+   "copyBufferSubData",
+   "createTransformFeedback",
+   "createVertexArray",
+   "drawBuffers",
+   "renderbufferStorageMultisample",
+   "texImage3D",
+   "uniform1f",
+   "uniform3f",
+   "uniformMatrix4fv",
+   "vertexAttribDivisor",
+]
+.map (name => [name, Function .prototype]));
+
 X3D .Context .create = function (canvas, version, preserveDrawingBuffer, mobile)
 {
    return Object .assign (gl (),
    {
       getVersion: function () { return 2; },
-      bindVertexArray: Function .prototype,
-      blendEquationSeparate: Function .prototype,
-      blendFuncSeparate: Function .prototype,
-      blitFramebuffer: Function .prototype,
-      copyBufferSubData: Function .prototype,
-      createTransformFeedback: Function .prototype,
-      createVertexArray: Function .prototype,
-      drawBuffers: Function .prototype,
-      renderbufferStorageMultisample: Function .prototype,
-      texImage3D: Function .prototype,
-      uniform1f: Function .prototype,
-      uniform3f: Function .prototype,
-      uniformMatrix4fv: Function .prototype,
-      vertexAttribDivisor: Function .prototype,
-   });
+   },
+   glFunctions);
 };
 
 module .exports = X3D;
