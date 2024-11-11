@@ -154,70 +154,38 @@ Object .defineProperties (window,
 
 Object .defineProperties (global,
 {
-   Blob:
-   {
-      value: window .Blob,
-      configurable: true,
-      writable: true,
-   },
-   FileReader:
-   {
-      value: window .FileReader,
-      configurable: true,
-      writable: true,
-   },
-   MutationObserver:
-   {
-      value: window .MutationObserver,
-      configurable: true,
-      writable: true,
-   },
-   ResizeObserver:
-   {
-      value: window .ResizeObserver,
-      configurable: true,
-      writable: true,
-   },
-   atob:
-   {
-      value: window .atob,
-      configurable: true,
-      writable: true,
-   },
-   customElements:
-   {
-      value: window .customElements,
-      configurable: true,
-      writable: true,
-      enumerable: true,
-   },
-   fetch:
-   {
-      value: window .fetch,
-      configurable: true,
-      writable: true,
-      enumerable: true,
-   },
-   localStorage:
-   {
-      value: window .localStorage,
-      configurable: true,
-      writable: true,
-      enumerable: true,
-   },
    require:
    {
       value: require,
       configurable: true,
       writable: true,
    },
-   sessionStorage:
+   ... Object .fromEntries ([
+      "Blob",
+      "FileReader",
+      "MutationObserver",
+      "ResizeObserver",
+      "atob",
+      "fetch",
+   ]
+   .map (name => [name,
    {
-      value: window .sessionStorage,
+      value: window [name],
+      configurable: true,
+      writable: true,
+   }])),
+   ... Object .fromEntries ([
+      "customElements",
+      "localStorage",
+      "sessionStorage",
+   ]
+   .map (name => [name,
+   {
+      value: window [name],
       configurable: true,
       writable: true,
       enumerable: true,
-   },
+   }])),
 });
 
 // Web Audio Shim
