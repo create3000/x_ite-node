@@ -33,5 +33,6 @@ test ("load Box", async () =>
    const browser = canvas .browser;
    const scene   = await browser .createX3DFromURL (new X3D .MFString ("https://create3000.github.io/media/examples/Geometry3D/Box/Box.x3d"));
 
+   expect (scene .encoding) .toBe ("XML");
    expect (scene .rootNodes) .toHaveLength (5);
 });
