@@ -250,7 +250,15 @@ X3D .createBrowser = function (... args)
 {
    const canvas = createBrowser .apply (X3D, args);
 
-   canvas .browser = new X3D .X3DBrowser (canvas);
+   canvas .setAttribute ("splashScreen",  false);
+   canvas .setAttribute ("notifications", false);
+   canvas .setAttribute ("timings",       false);
+
+   Object .defineProperty (canvas, "browser",
+   {
+      value: new X3D .X3DBrowser (canvas),
+      enumerable: true,
+   });
 
    return canvas;
 };
