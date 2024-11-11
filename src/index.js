@@ -268,7 +268,16 @@ const glFunctions = Object .fromEntries ([
    "texImage3D",
    "transformFeedbackVaryings",
    "uniform1f",
+   "uniform1fv",
+   "uniform1i",
+   "uniform1iv",
+   "uniform2f",
+   "uniform2fv",
    "uniform3f",
+   "uniform3fv",
+   "uniform4f",
+   "uniform4fv",
+   "uniformMatrix3fv",
    "uniformMatrix4fv",
    "vertexAttribDivisor",
 ]
@@ -278,7 +287,7 @@ X3D .Context .create = function (canvas, version, preserveDrawingBuffer, mobile)
 {
    return Object .assign (gl (), glFunctions,
    {
-      getVersion: function () { return 2; },
+      getVersion: function () { return 1; },
    });
 };
 
