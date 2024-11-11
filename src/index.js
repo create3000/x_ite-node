@@ -1,5 +1,6 @@
 // JSDOM
 
+// Restore it later.
 const BlobClass = Blob;
 
 require ("jsdom-global") ();
