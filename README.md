@@ -26,7 +26,6 @@ async function main ()
 
    await browser .loadComponents (scene);
 
-   scene .setProfile (browser .getProfile ("Interactive"));
    scene .rootNodes .push (scene .createNode ("Transform"));
    ...
 
