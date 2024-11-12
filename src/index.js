@@ -16,7 +16,7 @@ const
    os               = require ("os"),
    tmp              = fs .mkdtempSync (path .join (os .tmpdir (), "x_ite"));
 
-process.on ("exit", () =>
+process .on ("exit", () =>
 {
    fs .rmSync (tmp, { recursive: true });
 });
