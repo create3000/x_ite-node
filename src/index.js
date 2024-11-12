@@ -320,6 +320,8 @@ X3D .createBrowser = function (url, parameter)
       enumerable: true,
    });
 
+   element .browser .setBrowserOption ("LoadUrlObjects", false);
+
    if (arguments .length)
       element .browser .loadURL (url, parameter);
 
