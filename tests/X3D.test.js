@@ -41,7 +41,7 @@ test ("load one example", async () =>
 
    scene .dispose ();
 },
-/* min */ 10 * 60 * 1000);
+/* min */ 1 * 60 * 1000);
 
 test ("load media examples", async () =>
 {
@@ -69,4 +69,4 @@ test ("load media examples", async () =>
       scene .dispose ();
    }
 },
-/* min */ 10 * 60 * 1000);
+/* min */ 1 * 60 * 1000);
