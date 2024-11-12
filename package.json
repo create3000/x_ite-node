@@ -10,6 +10,7 @@
     "src/*"
   ],
   "scripts": {
+    "release": "node build/release.js",
     "test-script": "node tests/script.js",
     "test": "jest --detectOpenHandles"
   },
