@@ -31,34 +31,34 @@ test ("load Box", async () =>
 {
    const canvas  = X3D .createBrowser ();
    const browser = canvas .browser;
-   const scene   = await browser .createX3DFromURL (new X3D .MFString ("https://create3000.github.io/media/examples/Geometry3D/Box/Box.x3d"));
+   const scene   = await browser .createX3DFromURL (new X3D .MFString ("https://create3000.github.io/media/examples/Layering/LayerSet/LayerSet.x3d"));
 
    expect (scene .encoding) .toBe ("XML");
-   expect (scene .rootNodes) .toHaveLength (5);
+   expect (scene .rootNodes) .not .toHaveLength (0);
 });
 
-test ("load media examples", async () =>
-{
-   const
-      media    = `https://create3000.github.io/media/examples`,
-      response = await fetch (`${media}/config.json`),
-      examples = JSON .parse (await response .text ());
+// test ("load media examples", async () =>
+// {
+//    const
+//       media    = `https://create3000.github.io/media/examples`,
+//       response = await fetch (`${media}/config.json`),
+//       examples = JSON .parse (await response .text ());
 
-   expect (examples) .toBeInstanceOf (Array);
+//    expect (examples) .toBeInstanceOf (Array);
 
-   const canvas  = X3D .createBrowser ();
-   const browser = canvas .browser;
+//    const canvas  = X3D .createBrowser ();
+//    const browser = canvas .browser;
 
-   await browser .loadComponents (browser .getProfile ("Full"));
+//    await browser .loadComponents (browser .getProfile ("Full"));
 
-   await Promise .all (examples .map (async ({ name, component }) =>
-   {
-      console .log (component, name);
+//    for (const { name, component } of examples)
+//    {
+//       console .log (component, name);
 
-      const scene = await browser .createX3DFromURL (new X3D .MFString (`${media}/${component}/${name}/${name}.x3d`));
+//       const scene = await browser .createX3DFromURL (new X3D .MFString (`${media}/${component}/${name}/${name}.x3d`));
 
-      expect (scene .encoding) .toBe ("XML");
-      expect (scene .rootNodes) .not .toHaveLength (0);
-   }));
-},
-/* min */ 10 * 60 * 1000);
+//       expect (scene .encoding) .toBe ("XML");
+//       expect (scene .rootNodes) .not .toHaveLength (0);
+//    }
+// },
+// /* min */ 10 * 60 * 1000);

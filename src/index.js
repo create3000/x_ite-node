@@ -8,6 +8,7 @@ require ("jsdom-global") ();
 // Preparations
 
 const
+   nodeFetch        = require ("node-fetch"),
    { LocalStorage } = require ("node-localstorage"),
    path             = require ("path"),
    url              = require ("url"),
@@ -120,7 +121,7 @@ Object .defineProperties (window,
          }
          else
          {
-            return require ("node-fetch") (resource, options);
+            return nodeFetch (resource, options);
          }
       },
       configurable: true,
@@ -219,6 +220,8 @@ class AudioNode {
    disconnect () { }
    async play () { }
    async resume () { }
+   async start () { }
+   async stop () { }
    get attack () { return { } }
    get delayTime () { return { } }
    get destination () { return { maxChannelCount: 2 }; }
@@ -266,14 +269,14 @@ global .XMLDocument = window .Document;
 
 // 2D Context
 
+const { createCanvas } = require ("canvas");
+
 const getContext = HTMLCanvasElement .prototype .getContext;
 
 HTMLCanvasElement .prototype .getContext = function (... args)
 {
    if (args [0] === "2d")
    {
-      const { createCanvas } = require ("canvas");
-
       const canvas = createCanvas (200, 200);
 
       return canvas .getContext ("2d");
@@ -342,7 +345,7 @@ X3D .Context .create = function (canvas, version, preserveDrawingBuffer, mobile)
 {
    return Object .assign (gl (), glFunctions,
    {
-      getVersion: function () { return 1; },
+      getVersion: function () { return 2; },
    });
 };
 
