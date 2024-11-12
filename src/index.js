@@ -292,7 +292,10 @@ HTMLCanvasElement .prototype .getContext = function (... args)
    {
       const canvas = createCanvas (200, 200);
 
-      return Object .assign (canvas .getContext ("2d"), { drawImage: Function .prototype });
+      return Object .assign (canvas .getContext ("2d"),
+      {
+         drawImage: Function .prototype,
+      });
    }
    else
    {
