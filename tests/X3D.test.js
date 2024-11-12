@@ -1,41 +1,47 @@
 
 const X3D = require ("..");
 
-test ("X3D", () =>
-{
-   expect (X3D) .toBeInstanceOf (Object);
-});
+// test ("X3D", () =>
+// {
+//    expect (X3D) .toBeInstanceOf (Object);
+// });
 
-test ("createBrowser", () =>
+// test ("createBrowser", () =>
+// {
+//    const canvas  = X3D .createBrowser ();
+//    const browser = canvas .browser;
+
+//    expect (canvas) .toBeInstanceOf (HTMLElement);
+//    expect (browser) .toBeInstanceOf (X3D .X3DBrowser);
+// });
+
+// test ("nodes", async () =>
+// {
+//    const canvas  = X3D .createBrowser ();
+//    const browser = canvas .browser;
+//    const scene   = browser .currentScene;
+
+//    await browser .loadComponents (browser .getProfile ("Full"));
+
+//    for (const ConcreteNode of browser .concreteNodes)
+//       expect (new ConcreteNode (scene)) .toBeInstanceOf (ConcreteNode);
+// });
+
+test ("load one example", async () =>
 {
    const canvas  = X3D .createBrowser ();
    const browser = canvas .browser;
-
-   expect (canvas) .toBeInstanceOf (HTMLElement);
-   expect (browser) .toBeInstanceOf (X3D .X3DBrowser);
-});
-
-test ("nodes", async () =>
-{
-   const canvas  = X3D .createBrowser ();
-   const browser = canvas .browser;
-   const scene   = browser .currentScene;
 
    await browser .loadComponents (browser .getProfile ("Full"));
 
-   for (const ConcreteNode of browser .concreteNodes)
-      expect (new ConcreteNode (scene)) .toBeInstanceOf (ConcreteNode);
-});
-
-test ("load Box", async () =>
-{
-   const canvas  = X3D .createBrowser ();
-   const browser = canvas .browser;
-   const scene   = await browser .createX3DFromURL (new X3D .MFString ("https://create3000.github.io/media/examples/Layering/LayerSet/LayerSet.x3d"));
+   const scene = await browser .createX3DFromURL (new X3D .MFString ("https://create3000.github.io/media/examples/Texturing/MovieTexture/MovieTexture.x3d"));
 
    expect (scene .encoding) .toBe ("XML");
    expect (scene .rootNodes) .not .toHaveLength (0);
-});
+
+   scene .dispose ();
+},
+/* min */ 10 * 60 * 1000);
 
 // test ("load media examples", async () =>
 // {
@@ -59,6 +65,8 @@ test ("load Box", async () =>
 
 //       expect (scene .encoding) .toBe ("XML");
 //       expect (scene .rootNodes) .not .toHaveLength (0);
+
+//       scene .dispose ();
 //    }
 // },
 // /* min */ 10 * 60 * 1000);

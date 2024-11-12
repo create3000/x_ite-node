@@ -218,6 +218,7 @@ class AudioNode {
    createMediaStreamDestination () { return new AudioNode (); }
    decodeAudioData () { return new AudioNode (); }
    disconnect () { }
+   async pause () { }
    async play () { }
    async resume () { }
    async start () { }
@@ -247,6 +248,14 @@ class AudioNode {
    get upX () { return { } }
    get upY () { return { } }
    get upZ () { return { } }
+
+   get stream ()
+   {
+      return {
+         getAudioTracks: function () { return [ ]; },
+         getVideoTracks: function () { return [ ]; },
+      };
+   }
 }
 
 Object .defineProperties (window, Object .fromEntries (audioNodes .map (name => [name,
@@ -262,6 +271,10 @@ Object .defineProperties (global, Object .fromEntries (audioNodes .map (name => 
    configurable: true,
    writable: true,
 }])));
+
+// Video
+
+HTMLMediaElement .prototype .load = Function .prototype;
 
 // XML
 
@@ -279,7 +292,7 @@ HTMLCanvasElement .prototype .getContext = function (... args)
    {
       const canvas = createCanvas (200, 200);
 
-      return canvas .getContext ("2d");
+      return Object .assign (canvas .getContext ("2d"), { drawImage: Function .prototype });
    }
    else
    {
@@ -322,6 +335,7 @@ const glFunctions = Object .fromEntries ([
    "createTransformFeedback",
    "createVertexArray",
    "drawBuffers",
+   "generateMipmap",
    "renderbufferStorageMultisample",
    "texImage3D",
    "transformFeedbackVaryings",
@@ -345,7 +359,7 @@ X3D .Context .create = function (canvas, version, preserveDrawingBuffer, mobile)
 {
    return Object .assign (gl (), glFunctions,
    {
-      getVersion: function () { return 2; },
+      getVersion: function () { return 1; },
    });
 };
 
