@@ -21,13 +21,19 @@ const
 
 async function main ()
 {
+   // Add and load required profile and components:
+
    scene .setProfile (browser .getProfile ("Interchange"));
    scene .addComponent (browser .getComponent ("Interpolation", 1));
 
    await browser .loadComponents (scene);
 
+   // Create and add some nodes:
+
    scene .rootNodes .push (scene .createNode ("Transform"));
    ...
+
+   // Generate XML file:
 
    console .log (scene .toXMLString ());
 }
