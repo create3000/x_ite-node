@@ -291,9 +291,9 @@ const { Canvas } = require ("skia-canvas");
 
 const getContext = HTMLCanvasElement .prototype .getContext;
 
-HTMLCanvasElement .prototype .getContext = function (... args)
+HTMLCanvasElement .prototype .getContext = function (contextType, ... args)
 {
-   if (args [0] === "2d")
+   if (contextType === "2d")
    {
       const canvas = new Canvas ();
 
@@ -304,7 +304,7 @@ HTMLCanvasElement .prototype .getContext = function (... args)
    }
    else
    {
-      return getContext .call (this, ... args);
+      return getContext .call (this, contextType, ... args);
    }
 };
 
