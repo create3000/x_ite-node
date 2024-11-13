@@ -1,4 +1,8 @@
-const X3D = require ("..");
+const
+   X3D  = require (".."),
+   path = require ("path"),
+   url  = require ("url"),
+   fs   = require ("fs");
 
 const
    canvas  = X3D .createBrowser (),
@@ -7,7 +11,7 @@ const
 
 async function main ()
 {
-   await box ();
+   await svg ();
 }
 
 async function nodes ()
@@ -28,11 +32,11 @@ async function box ()
    console .log (scene .toVRMLString ())
 }
 
-async function drawing ()
+async function svg ()
 {
-   const scene = await browser .createX3DFromURL (new X3D .MFString ("file:///Volumes/Home/X3D/SVG/Zeichnung.svg"));
+   const scene = await browser .createX3DFromURL (new X3D .MFString (url .pathToFileURL (path .join (__dirname, "Primitives.svg"))));
 
-   console .log (scene .toVRMLString ())
+   fs .writeFileSync (path .join (__dirname, "Primitives.x3d"), scene .toXMLString ())
 }
 
 main ();
