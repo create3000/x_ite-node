@@ -54,13 +54,13 @@
   ],
   "dependencies": {
     "atob": "^2.1.2",
-    "canvas": "^2.11.2",
     "filereader": "^0.10.3",
     "jsdom": "^25.0.1",
     "jsdom-global": "^3.0.2",
     "node-fetch": "^2.7.0",
     "node-localstorage": "^3.0.5",
     "nogl": "^1.1.0",
+    "skia-canvas": "^1.0.2",
     "x_ite": "^10.5.10"
   },
   "devDependencies": {

@@ -287,7 +287,7 @@ global .XMLDocument = window .Document;
 
 // 2D Context
 
-const { createCanvas } = require ("canvas");
+const { Canvas } = require ("skia-canvas");
 
 const getContext = HTMLCanvasElement .prototype .getContext;
 
@@ -295,7 +295,7 @@ HTMLCanvasElement .prototype .getContext = function (... args)
 {
    if (args [0] === "2d")
    {
-      const canvas = createCanvas (200, 200);
+      const canvas = new Canvas (200, 200);
 
       return Object .assign (canvas .getContext ("2d"),
       {
