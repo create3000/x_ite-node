@@ -295,7 +295,7 @@ HTMLCanvasElement .prototype .getContext = function (... args)
 {
    if (args [0] === "2d")
    {
-      const canvas = new Canvas (200, 200);
+      const canvas = new Canvas ();
 
       return Object .assign (canvas .getContext ("2d"),
       {
