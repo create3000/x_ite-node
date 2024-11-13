@@ -7,7 +7,7 @@ const
 
 async function main ()
 {
-   await drawing ();
+   await box ();
 }
 
 async function nodes ()
