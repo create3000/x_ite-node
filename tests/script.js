@@ -11,8 +11,8 @@ const
 
 async function main ()
 {
-   await box ();
-   await svg ();
+   box ();
+   svg ();
 }
 
 async function nodes ()
