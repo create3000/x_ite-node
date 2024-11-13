@@ -11,6 +11,7 @@ const
 
 async function main ()
 {
+   await box ();
    await svg ();
 }
 
@@ -29,7 +30,7 @@ async function box ()
 {
    const scene = await browser .createX3DFromURL (new X3D .MFString ("https://create3000.github.io/media/examples/Geometry3D/Box/Box.x3d"));
 
-   console .log (scene .toVRMLString ())
+   fs .writeFileSync (path .join (__dirname, "Box.x3dv"), scene .toVRMLString ())
 }
 
 async function svg ()
