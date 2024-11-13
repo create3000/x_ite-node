@@ -28,7 +28,7 @@ async function main ()
 
    await browser .loadComponents (scene);
 
-   // Create and add some nodes:
+   // Create and add some nodes to scene:
 
    scene .rootNodes .push (scene .createNode ("Transform"));
    ...
