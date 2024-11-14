@@ -12,12 +12,6 @@ npm i x_ite-node
 
 ## Usage
 
-Useful information on how to access the external browser and documentation on all X_ITE functions can be found via the following links:
-
-* [External Browser](https://create3000.github.io/x_ite/accessing-the-external-browser/)
-* [Scripting Reference](https://create3000.github.io/x_ite/reference/ecmascript-object-and-function-definitions/)
-* [Components](https://create3000.github.io/x_ite/components/overview/)
-
 ```js
 const
    X3D     = require ("x_ite-node"),
@@ -46,6 +40,12 @@ async function main ()
 
 main ();
 ```
+
+Useful information on how to access the external browser and documentation on all X_ITE functions can be found via the following links:
+
+* [External Browser](https://create3000.github.io/x_ite/accessing-the-external-browser/)
+* [Scripting Reference](https://create3000.github.io/x_ite/reference/ecmascript-object-and-function-definitions/)
+* [Components](https://create3000.github.io/x_ite/components/overview/)
 
 ## See Also
 
