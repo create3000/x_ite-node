@@ -324,17 +324,12 @@ X3D .createBrowser = function (url, parameter)
    element .setAttribute ("notifications", false);
    element .setAttribute ("timings",       false);
 
-   Object .defineProperty (element, "browser",
-   {
-      value: new X3D .X3DBrowser (element),
-      enumerable: true,
-      writable: true,
-   });
+   const browser = new X3D .X3DBrowser (element);
 
-   element .browser .setBrowserOption ("LoadUrlObjects", false);
+   browser .setBrowserOption ("LoadUrlObjects", false);
 
    if (arguments .length)
-      element .browser .loadURL (url, parameter);
+      browser .loadURL (url, parameter);
 
    return element;
 };
