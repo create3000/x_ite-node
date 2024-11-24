@@ -40,6 +40,7 @@ test ("load one example", async () =>
    expect (scene .rootNodes) .not .toHaveLength (0);
 
    scene .dispose ();
+   browser .dispose ();
 },
 /* min */ 1 * 60 * 1000);
 
