@@ -345,6 +345,7 @@ const glFunctions = Object .fromEntries ([
    "createVertexArray",
    "drawBuffers",
    "generateMipmap",
+   "isEnabled",
    "readPixels",
    "renderbufferStorageMultisample",
    "texImage3D",
