@@ -341,6 +341,7 @@ const glFunctions = Object .fromEntries ([
    "blitFramebuffer",
    "copyBufferSubData",
    "copyTexSubImage2D",
+   "copyTexSubImage3D",
    "createTransformFeedback",
    "createVertexArray",
    "drawBuffers",
