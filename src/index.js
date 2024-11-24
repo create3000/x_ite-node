@@ -361,6 +361,7 @@ const glFunctions = Object .fromEntries ([
    "uniform3fv",
    "uniform4f",
    "uniform4fv",
+   "uniform4iv",
    "uniformMatrix3fv",
    "uniformMatrix4fv",
    "vertexAttribDivisor",
