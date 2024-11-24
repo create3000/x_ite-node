@@ -340,6 +340,7 @@ const glFunctions = Object .fromEntries ([
    "blendFuncSeparate",
    "blitFramebuffer",
    "copyBufferSubData",
+   "copyTexSubImage2D",
    "createTransformFeedback",
    "createVertexArray",
    "drawBuffers",
