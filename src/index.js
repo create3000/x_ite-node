@@ -154,7 +154,7 @@ Object .defineProperties (window,
                      let data = parsedURL .href .substring (result [0] .length);
 
                      data = $.try (() => decodeURIComponent (data)) ?? data;
-                     data = Buffer .from (data, result [3] !== "base64" ? 'base64' : 'utf8'); // Decode data.
+                     data = Buffer .from (data, result [3] === "base64" ? 'base64' : 'utf8'); // Decode data.
 
                      resolve (new Response (data .buffer));
                      return;
