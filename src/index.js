@@ -21,6 +21,21 @@ process .on ("exit", () =>
    fs .rmSync (tmp, { recursive: true });
 });
 
+const $ = {
+   try (callback, logError = false)
+   {
+      try
+      {
+         return callback ();
+      }
+      catch (error)
+      {
+         if (logError)
+            console .error (error .message);
+      }
+   },
+};
+
 // Window
 
 Object .defineProperties (window,
@@ -109,24 +124,49 @@ Object .defineProperties (window,
       {
          const parsedURL = new URL (resource);
 
-         if (parsedURL .protocol === "file:")
+         switch (parsedURL .protocol)
          {
-            return new Promise ((resolve, reject) =>
+            case "file:":
             {
-               const filePath = url .fileURLToPath (parsedURL);
-
-               fs .readFile (filePath, (error, data) =>
+               return new Promise ((resolve, reject) =>
                {
-                  if (error)
-                     reject (error);
-                  else
-                     resolve (new Response (data));
+                  const filePath = url .fileURLToPath (parsedURL);
+
+                  fs .readFile (filePath, (error, data) =>
+                  {
+                     if (error)
+                        reject (error);
+                     else
+                        resolve (new Response (data));
+                  });
                });
-            });
-         }
-         else
-         {
-            return nodeFetch (resource, options);
+            }
+            case "data:":
+            {
+               return new Promise ((resolve, reject) =>
+               {
+                  const result = parsedURL .href .match (/^\s*data:(.*?)(?:;charset=(.*?))?(?:;(base64))?,/s);
+
+                  if (result)
+                  {
+                     // const mimeType = result [1] || "text/plain"";
+
+                     let data = parsedURL .href .substring (result [0] .length);
+
+                     data = $.try (() => decodeURIComponent (data)) ?? data;
+                     data = Buffer .from (data, result [3] !== "base64" ? 'base64' : 'utf8'); // Decode data.
+
+                     resolve (new Response (data .buffer));
+                     return;
+                  }
+
+                  reject (new Error ("Couldn't parse data: URL."));
+               });
+            }
+            default:
+            {
+               return nodeFetch (resource, options);
+            }
          }
       },
       configurable: true,
