@@ -156,7 +156,7 @@ Object .defineProperties (window,
                      data = $.try (() => decodeURIComponent (data)) ?? data;
                      data = Buffer .from (data, result [3] === "base64" ? "base64" : "utf8"); // Decode data.
 
-                     resolve (new Response (data .buffer));
+                     resolve (new Response (data));
                      return;
                   }
 
