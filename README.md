@@ -50,3 +50,4 @@ Useful information on how to access the external browser and documentation of al
 ## See Also
 
 * [X_ITE](https://create3000.github.io/x_ite/)
+* [x3d-traverse](https://www.npmjs.com/package/x3d-traverse)
