@@ -1,6 +1,6 @@
 {
   "name": "x_ite-node",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "Pure Node.js wrapper of X_ITE",
   "main": "src/index.js",
   "files": [
@@ -58,7 +58,7 @@
     "node-localstorage": "^3.0.5",
     "nogl": "^1.1.0",
     "skia-canvas": "^1.0.2",
-    "x_ite": "^10.5.14"
+    "x_ite": "^10.5.15"
   },
   "devDependencies": {
     "jest": "^29.7.0",
