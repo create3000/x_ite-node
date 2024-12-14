@@ -13,20 +13,16 @@ npm i x_ite-node
 ## Usage
 
 ```js
-const
-   X3D     = require ("x_ite-node"),
-   canvas  = X3D .createBrowser (),
-   browser = canvas .browser,
-   scene   = browser .currentScene;
+const X3D = require ("x_ite-node");
 
 async function main ()
 {
-   // Add and load required profile and components:
+   // Create browser and scene:
 
-   scene .setProfile (browser .getProfile ("Interchange"));
-   scene .addComponent (browser .getComponent ("Interpolation", 1));
-
-   await browser .loadComponents (scene);
+   const
+      canvas  = X3D .createBrowser (),
+      browser = canvas .browser,
+      scene   = await browser .createScene (browser .getProfile ("Interchange"), browser .getComponent ("Interpolation", 1));
 
    // Create and add some nodes to scene:
 
