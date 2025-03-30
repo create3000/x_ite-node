@@ -268,6 +268,7 @@ class AudioNode {
    async resume () { }
    async start () { }
    async stop () { }
+   async suspend () { }
    get attack () { return { } }
    get delayTime () { return { } }
    get destination () { return { maxChannelCount: 2 }; }
