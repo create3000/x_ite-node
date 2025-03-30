@@ -263,12 +263,12 @@ class AudioNode {
    createMediaStreamDestination () { return new AudioNode (); }
    decodeAudioData () { return new AudioNode (); }
    disconnect () { }
-   async pause () { }
+   pause () { }
    async play () { }
    async resume () { }
    async start () { }
-   async stop () { }
-   async suspend () { }
+   stop () { }
+   suspend () { }
    get attack () { return { } }
    get delayTime () { return { } }
    get destination () { return { maxChannelCount: 2 }; }
