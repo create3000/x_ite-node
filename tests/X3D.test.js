@@ -71,3 +71,17 @@ test ("load media examples", async () =>
    }
 },
 /* min */ 1 * 60 * 1000);
+
+test ("nodes", async () =>
+{
+   const canvas  = X3D .createBrowser ();
+   const browser = canvas .browser;
+
+   const scene = await browser .createScene (browser .getProfile ("Full"), browser .getComponent ("X_ITE"));
+
+   for (const ConcreteNode of browser .concreteNodes)
+      expect (scene .createNode (ConcreteNode .typeName) .getNodeTypeName ()) .toBe (ConcreteNode .typeName);
+
+   scene .dispose ();
+   browser .dispose ();
+});
