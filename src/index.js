@@ -254,7 +254,7 @@ Object .defineProperties (document,
    {
       value: new Set (),
       configurable: true,
-      writable: true,
+      enumerable: true,
    },
 });
 
