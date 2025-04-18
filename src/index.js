@@ -77,6 +77,15 @@ Object .defineProperties (window,
       configurable: true,
       writable: true,
    },
+   FontFace:
+   {
+      value: class
+      {
+         async load () { return this; }
+      },
+      configurable: true,
+      writable: true,
+   },
    MutationObserver:
    {
       value: class
@@ -210,6 +219,7 @@ Object .defineProperties (global,
    ... Object .fromEntries ([
       "Blob",
       "FileReader",
+      "FontFace",
       "MutationObserver",
       "ResizeObserver",
    ]
@@ -234,6 +244,18 @@ Object .defineProperties (global,
       writable: true,
       enumerable: true,
    }])),
+});
+
+// Document
+
+Object .defineProperties (document,
+{
+   fonts:
+   {
+      value: new Set (),
+      configurable: true,
+      writable: true,
+   },
 });
 
 // Web Audio Shim
