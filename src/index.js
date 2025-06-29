@@ -410,6 +410,7 @@ const glFunctions = Object .fromEntries ([
    "deleteFramebuffer",
    "drawBuffers",
    "generateMipmap",
+   "hint",
    "isEnabled",
    "polygonOffset",
    "readPixels",
