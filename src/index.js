@@ -444,7 +444,7 @@ X3D .Context .create = function (canvas, version, preserveDrawingBuffer, mobile)
 {
    return Object .assign (gl (), glFunctions,
    {
-      getVersion: function () { return 1; },
+      getVersion: function () { return 2; },
    });
 };
 
