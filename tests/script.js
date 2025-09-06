@@ -26,7 +26,7 @@ async function main ()
 
 async function nodes ()
 {
-   await browser .loadComponents (browser .getProfile ("Full"));
+   await browser .loadComponents (browser .getProfile ("Full"), browser .getComponent ("X_ITE"));
 
    // for (const ConcreteNode of browser .concreteNodes)
    //    console .log (ConcreteNode .typeName);
