@@ -13,6 +13,8 @@ test ("createBrowser", () =>
 
    expect (canvas) .toBeInstanceOf (HTMLElement);
    expect (browser) .toBeInstanceOf (X3D .X3DBrowser);
+
+   browser .dispose ();
 });
 
 test ("nodes", async () =>
@@ -25,6 +27,12 @@ test ("nodes", async () =>
 
    for (const ConcreteNode of browser .concreteNodes)
       expect (new ConcreteNode (scene)) .toBeInstanceOf (ConcreteNode);
+
+   for (const ConcreteNode of browser .concreteNodes)
+      expect (scene .createNode (ConcreteNode .typeName) .getNodeName ()) .toBe (ConcreteNode .typeName);
+
+   scene .dispose ();
+   browser .dispose ();
 });
 
 test ("load one example", async () =>
@@ -69,6 +77,8 @@ test ("load media examples", async () =>
 
       scene .dispose ();
    }
+
+   browser .dispose ();
 },
 /* min */ 1 * 60 * 1000);
 
