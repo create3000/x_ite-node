@@ -9,10 +9,19 @@ const
    browser = canvas .browser,
    scene   = browser .currentScene;
 
+browser .setBrowserOption ("LoadUrlObjects", false);
+
 async function main ()
 {
-   box ();
-   svg ();
+   console .log ("Start test ...");
+
+   await nodes ();
+   await box ();
+   await svg ();
+
+   browser .dispose ();
+
+   console .log ("Finished test ...");
 }
 
 async function nodes ()

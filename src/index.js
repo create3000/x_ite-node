@@ -191,7 +191,7 @@ Object .defineProperties (window,
    },
    requestAnimationFrame:
    {
-      value: callback => setTimeout (() => callback (performance .now ()), 0),
+      value: callback => setTimeout (() => callback (performance .now ()), 15),
       configurable: true,
       writable: true,
       enumerable: true,
@@ -376,8 +376,8 @@ HTMLCanvasElement .prototype .getContext = function (contextType, ... args)
 // X_ITE
 
 const
-   X3D = require ("x_ite"),
-   gl  = require ("nogl");
+   X3D  = require ("x_ite"),
+   nogl = require ("nogl");
 
 X3D .createBrowser = function (url, parameter)
 {
@@ -437,14 +437,23 @@ const glFunctions = Object .fromEntries ([
    "uniformMatrix3fv",
    "uniformMatrix4fv",
    "vertexAttribDivisor",
+   "bindTransformFeedback",
+   "bindBufferBase",
+   "beginTransformFeedback",
+   "endTransformFeedback",
 ]
 .map (name => [name, Function .prototype]));
 
 X3D .Context .create = function (canvas, version, preserveDrawingBuffer, mobile)
 {
-   return Object .assign (gl (), glFunctions,
+   const
+      gl            = nogl (),
+      createProgram = gl .createProgram;
+
+   return Object .assign (gl, glFunctions,
    {
-      getVersion: function () { return 2; },
+      getVersion: () => 2,
+      createProgram: () => new Number (createProgram .call (gl)),
    });
 };
 
