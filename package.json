@@ -9,7 +9,7 @@
   "scripts": {
     "release": "node build/release.js",
     "test-script": "node tests/script.js",
-    "test": "jest --detectOpenHandles"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
