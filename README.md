@@ -36,6 +36,9 @@ async function main ()
    // Generate XML file:
 
    console .log (scene .toXMLString ());
+
+   // Always call dispose!
+   browser .dispose ();
 }
 
 main ();

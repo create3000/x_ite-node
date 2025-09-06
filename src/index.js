@@ -191,7 +191,7 @@ Object .defineProperties (window,
    },
    requestAnimationFrame:
    {
-      value: callback => setTimeout (() => callback (performance .now ()), 15),
+      value: callback => setTimeout (() => callback (performance .now ()), 0),
       configurable: true,
       writable: true,
       enumerable: true,
