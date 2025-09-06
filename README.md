@@ -37,7 +37,7 @@ async function main ()
 
    console .log (scene .toXMLString ());
 
-   // Always call dispose!
+   // Always call dispose at end!
    browser .dispose ();
 }
 
