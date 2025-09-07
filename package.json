@@ -59,7 +59,7 @@
     "node-localstorage": "^3.0.5",
     "nogl": "^1.1.0",
     "skia-canvas": "^2.0.2",
-    "x_ite": "^12.0.6"
+    "x_ite": "^12.0.7"
   },
   "devDependencies": {
     "jest": "^30.1.3",
