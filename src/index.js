@@ -209,6 +209,11 @@ Object .defineProperties (window,
 
 Object .defineProperties (global,
 {
+   navigator:
+   {
+      value: { language: "en", languages: [ ] },
+      configurable: true,
+   },
    require:
    {
       value: require,
