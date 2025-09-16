@@ -227,7 +227,6 @@ Object .defineProperties (global,
    {
       value: window [name],
       configurable: true,
-      writable: true,
    }])),
    // functions and properties
    ... Object .fromEntries ([
