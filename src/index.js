@@ -209,11 +209,6 @@ Object .defineProperties (window,
 
 Object .defineProperties (global,
 {
-   navigator:
-   {
-      value: { language: "en", languages: [ ] },
-      configurable: true,
-   },
    require:
    {
       value: require,
@@ -240,13 +235,13 @@ Object .defineProperties (global,
       "customElements",
       "fetch",
       "localStorage",
+      "navigator",
       "sessionStorage",
    ]
    .map (name => [name,
    {
       value: window [name],
       configurable: true,
-      writable: true,
       enumerable: true,
    }])),
 });
