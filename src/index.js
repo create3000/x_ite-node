@@ -235,7 +235,7 @@ Object .defineProperties (global,
       "customElements",
       "fetch",
       "localStorage",
-      "navigator",
+      ... global .navigator ? [ ] : ["navigator"],
       "sessionStorage",
    ]
    .map (name => [name,
