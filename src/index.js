@@ -359,7 +359,7 @@ HTMLCanvasElement .prototype .getContext = function (contextType, ... args)
    {
       const canvas = new Canvas ();
 
-      canvas .toDataURL = canvas .toDataURLSync;
+      canvas .toDataURL = canvas .toURLSync;
 
       return Object .assign (canvas .getContext ("2d"),
       {
