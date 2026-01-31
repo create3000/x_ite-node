@@ -74,6 +74,9 @@ test ("load media examples", async () =>
 
       expect (scene .encoding) .toBe ("XML");
       expect (scene .rootNodes) .not .toHaveLength (0);
+      expect (scene .toXMLString ()) .not .toHaveLength (0);
+      expect (scene .toVRMLString ()) .not .toHaveLength (0);
+      expect (scene .toJSONString ()) .not .toHaveLength (0);
 
       scene .dispose ();
    }
