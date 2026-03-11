@@ -53,4 +53,4 @@ Useful information on how to access the external browser and documentation of al
 ## See Also
 
 * [X_ITE](https://create3000.github.io/x_ite/) - X3D Browser
-* [x3d-traverse](https://www.npmjs.com/package/x3d-traverse) - traverse X3D scene graph
+* [x3d-traverse](https://www.npmjs.com/package/x3d-traverse) - Traverse X3D Scene Graph
