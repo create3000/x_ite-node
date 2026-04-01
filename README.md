@@ -4,9 +4,9 @@
 [![npm Downloads](https://badgen.net/npm/dm/x_ite-node)](https://npmtrends.com/x_ite-node)
 [![DeepScan grade](https://deepscan.io/api/teams/23540/projects/28573/branches/920516/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=23540&pid=28573&bid=920516)
 
-This is a wrapper for [X_ITE](https://create3000.github.io/x_ite/) for use in a plain Node.js environment. The purpose of this module is to provide a version of X_ITE that can load X3D files, modify or process them, and generate X3D files with node.
+This is a wrapper for [X_ITE](https://create3000.github.io/x_ite/) designed for use in a plain Node.js environment. This module provides a version of X_ITE that can load, modify and process X3D files, and generate X3D files using Node.
 
-There is no way to render images or anything like that, use [X_ITE in an Electron environment](https://create3000.github.io/x_ite/how-to-use-x-ite-with-electron/) for that.
+There is no way to render images or anything like that, use [x3d-image](https://www.npmjs.com/package/x3d-image) or [X_ITE in an Electron environment](https://create3000.github.io/x_ite/how-to-use-x-ite-with-electron/) for that.
 
 ## Installation
 
