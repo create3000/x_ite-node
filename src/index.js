@@ -127,6 +127,13 @@ Object .defineProperties (window,
       writable: true,
       enumerable: true,
    },
+   devicePixelRatio:
+   {
+      value: 1,
+      configurable: true,
+      writable: true,
+      enumerable: true,
+   },
    fetch:
    {
       value: function (resource, options)
@@ -203,6 +210,18 @@ Object .defineProperties (window,
       writable: true,
       enumerable: true,
    },
+   visualViewport:
+   {
+      value:
+      {
+         scale: 1,
+         addEventListener: Function .prototype,
+         removeEventListener: Function .prototype,
+      },
+      configurable: true,
+      writable: true,
+      enumerable: true,
+   },
 });
 
 // Global
@@ -232,10 +251,12 @@ Object .defineProperties (global,
    ... Object .fromEntries ([
       "atob",
       "customElements",
+      "devicePixelRatio",
       "fetch",
       "localStorage",
       ... global .navigator ? [ ] : ["navigator"],
       "sessionStorage",
+      "visualViewport",
    ]
    .map (name => [name,
    {
