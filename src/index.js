@@ -278,6 +278,25 @@ Object .defineProperties (document,
    },
 });
 
+// URL
+
+Object .defineProperties (URL,
+{
+   createObjectURL:
+   {
+      value ()
+      {
+         return new URL ("data:text/javascript,");
+      },
+      configurable: true,
+   },
+   revokeObjectURL:
+   {
+      value: Function .prototype,
+      configurable: true,
+   },
+});
+
 // Web Audio Shim
 
 const audioNodes = [
