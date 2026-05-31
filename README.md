@@ -52,7 +52,7 @@ Useful information on how to access the external browser and documentation of al
 
 ## Hint
 
-* If you load a file with `X3DBrowser.loadURL()` or `X3DBrowser.createX3DFromURL()` set browser option "LoadUrlObjects" to `false`.
+* If you load a file with `X3DBrowser.loadURL()` or `X3DBrowser.createX3DFromURL()`, set browser option "LoadUrlObjects" to `false`.
 
 ## See Also
 
