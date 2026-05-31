@@ -50,6 +50,10 @@ Useful information on how to access the external browser and documentation of al
 * [Scripting Reference](https://create3000.github.io/x_ite/reference/ecmascript-object-and-function-definitions/)
 * [Components](https://create3000.github.io/x_ite/components/overview/)
 
+## Hint
+
+* If you load a file with `X3DBrowser.loadURL()` or `X3DBrowser.createX3DFromURL()` set browser option "LoadUrlObjects" to `false`.
+
 ## See Also
 
 * [X_ITE](https://create3000.github.io/x_ite/) - X3D Browser
