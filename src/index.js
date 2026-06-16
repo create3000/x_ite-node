@@ -2,6 +2,7 @@
 
 // Restore it later.
 const BlobClass = Blob;
+const URLClass  = URL;
 
 require ("jsdom-global") ();
 
@@ -111,6 +112,12 @@ Object .defineProperties (window,
          observe () { }
          disconnect () { }
       },
+      configurable: true,
+      writable: true,
+   },
+   URL:
+   {
+      value: URLClass,
       configurable: true,
       writable: true,
    },
@@ -250,6 +257,7 @@ Object .defineProperties (global,
       "Image",
       "MutationObserver",
       "ResizeObserver",
+      "URL",
    ]
    .map (name => [name,
    {
@@ -401,22 +409,6 @@ HTMLCanvasElement .prototype .getContext = function (contextType, ... args)
       return getContext .call (this, contextType, ... args);
    }
 };
-
-Object .defineProperties (URL,
-{
-   createObjectURL:
-   {
-      value: blob => "",
-      configurable: true,
-      writable: true,
-   },
-   revokeObjectURL:
-   {
-      value: Function .prototype,
-      configurable: true,
-      writable: true,
-   },
-});
 
 // X_ITE
 
