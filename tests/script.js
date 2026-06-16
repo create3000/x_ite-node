@@ -49,7 +49,6 @@ async function svg ()
    fs .writeFileSync (path .join (__dirname, "Primitives.x3d"), scene .toXMLString ())
 }
 
-
 async function mediaExamples ()
 {
    const
