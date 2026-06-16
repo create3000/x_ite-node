@@ -9,7 +9,7 @@ require ("jsdom-global") ();
 // Preparations
 
 const
-   nodeFetch        = require ("node-fetch"),
+   globalFetch      = global .fetch,
    { LocalStorage } = require ("node-localstorage"),
    path             = require ("path"),
    url              = require ("url"),
@@ -188,7 +188,7 @@ Object .defineProperties (window,
             }
             default:
             {
-               return nodeFetch (resource, options);
+               return globalFetch (resource, options);
             }
          }
       },

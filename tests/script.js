@@ -6,8 +6,7 @@ const
 
 const
    canvas  = X3D .createBrowser (),
-   browser = canvas .browser,
-   scene   = browser .currentScene;
+   browser = canvas .browser;
 
 browser .setBrowserOption ("LoadUrlObjects", false);
 
@@ -26,7 +25,7 @@ async function main ()
 
 async function nodes ()
 {
-   await browser .loadComponents (browser .getProfile ("Full"), browser .getComponent ("X_ITE"));
+   const scene = await browser .createScene (browser .getProfile ("Full"), browser .getComponent ("X_ITE"));
 
    // for (const ConcreteNode of browser .concreteNodes)
    //    console .log (ConcreteNode .typeName);
