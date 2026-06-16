@@ -5,6 +5,8 @@ const BlobClass = Blob;
 
 require ("jsdom-global") ();
 
+const { Image } = require ("canvas");
+
 // Preparations
 
 const
@@ -83,6 +85,12 @@ Object .defineProperties (window,
       {
          async load () { return this; }
       },
+      configurable: true,
+      writable: true,
+   },
+   Image:
+   {
+      value: Image,
       configurable: true,
       writable: true,
    },
@@ -239,6 +247,7 @@ Object .defineProperties (global,
       "Blob",
       "FileReader",
       "FontFace",
+      "Image",
       "MutationObserver",
       "ResizeObserver",
    ]
