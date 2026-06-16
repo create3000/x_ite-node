@@ -39,14 +39,14 @@ async function box ()
 {
    const scene = await browser .createX3DFromURL (new X3D .MFString ("https://create3000.github.io/media/examples/Geometry3D/Box/Box.x3d"));
 
-   fs .writeFileSync (path .join (__dirname, "Box.x3dv"), scene .toVRMLString ())
+   fs .writeFileSync (path .join (__dirname, "Box.x3dv"), scene .toVRMLString ());
 }
 
 async function svg ()
 {
    const scene = await browser .createX3DFromURL (new X3D .MFString (url .pathToFileURL (path .join (__dirname, "Primitives.svg"))));
 
-   fs .writeFileSync (path .join (__dirname, "Primitives.x3d"), scene .toXMLString ())
+   fs .writeFileSync (path .join (__dirname, "Primitives.x3d"), scene .toXMLString ());
 }
 
 async function mediaExamples ()
