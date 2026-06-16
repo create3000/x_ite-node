@@ -393,6 +393,22 @@ HTMLCanvasElement .prototype .getContext = function (contextType, ... args)
    }
 };
 
+Object .defineProperties (URL,
+{
+   createObjectURL:
+   {
+      value: blob => "",
+      configurable: true,
+      writable: true,
+   },
+   revokeObjectURL:
+   {
+      value: Function .prototype,
+      configurable: true,
+      writable: true,
+   },
+});
+
 // X_ITE
 
 const
