@@ -52,7 +52,6 @@
   ],
   "dependencies": {
     "atob": "^2.1.2",
-    "canvas": "^3.2.3",
     "filereader": "^0.10.3",
     "jsdom": "27.0.0",
     "jsdom-global": "^3.0.2",
