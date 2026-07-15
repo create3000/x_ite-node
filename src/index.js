@@ -244,6 +244,7 @@ Object .defineProperties (global,
    // classes
    ... Object .fromEntries ([
       "Blob",
+      "DOMParser",
       "FileReader",
       "FontFace",
       "MutationObserver",
@@ -404,7 +405,7 @@ HTMLCanvasElement .prototype .getContext = function (contextType, ... args)
 // X_ITE
 
 const
-   X3D  = require ("x_ite"),
+   X3D  = require ("x_ite"), // require ("../../x_ite/dist/x_ite"),
    nogl = require ("nogl");
 
 X3D .createBrowser = function (url, parameter)
