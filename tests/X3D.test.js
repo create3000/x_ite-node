@@ -4,6 +4,7 @@ const X3D = require ("..");
 
 test ("X3D", () =>
 {
+   expect (window) .toBeInstanceOf (Object);
    expect (X3D) .toBeInstanceOf (Object);
 });
 
