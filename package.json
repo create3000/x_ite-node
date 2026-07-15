@@ -52,6 +52,7 @@
   ],
   "dependencies": {
     "atob": "^2.1.2",
+    "dom-parser": "^1.1.5",
     "filereader": "^0.10.3",
     "jsdom": "29.1.1",
     "jsdom-global": "^3.0.2",
@@ -62,9 +63,14 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "eslint": "^10.5.0",
-    "globals": "^17.6.0",
+    "eslint": "^10.7.0",
+    "globals": "^17.7.0",
     "jest": "^30.4.2",
     "shell-tools": "^1.1.9"
+  },
+  "allowScripts": {
+    "fsevents@2.3.3": true,
+    "skia-canvas@3.0.8": true,
+    "unrs-resolver@1.12.2": true
   }
 }
