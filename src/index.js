@@ -47,12 +47,6 @@ Object .defineProperties (window,
       configurable: true,
       writable: true,
    },
-   DOMParser:
-   {
-      value: require ("dom-parser"),
-      configurable: true,
-      writable: true,
-   },
    FileReader:
    {
       value: class extends require ("filereader")
@@ -250,7 +244,6 @@ Object .defineProperties (global,
    // classes
    ... Object .fromEntries ([
       "Blob",
-      "DOMParser",
       "FileReader",
       "FontFace",
       "MutationObserver",
@@ -491,9 +484,5 @@ X3D .Context .create = function (canvas, version, preserveDrawingBuffer, mobile)
       createProgram: () => new Number (createProgram .call (gl)),
    });
 };
-
-console .log (DOMParser)
-
-process .exit ();
 
 module .exports = X3D;
