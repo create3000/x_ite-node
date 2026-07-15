@@ -7,19 +7,27 @@ export default defineConfig ([
     files: ["**/*.{js,mjs,cjs}"],
     plugins: { js },
     extends: ["js/recommended"],
-    languageOptions: {
+    languageOptions:
+    {
       globals:
       {
         ... globals .browser,
         ... globals .node,
-      }
-    }
+      },
+    },
   },
   {
     files: ["**/*.js"],
     languageOptions:
     {
       sourceType: "commonjs",
-    }
+    },
+  },
+  {
+    files: ["test/**/*.js"],
+    languageOptions:
+    {
+      sourceType: "module",
+    },
   },
 ]);

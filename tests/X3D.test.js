@@ -1,3 +1,4 @@
+import { expect, test } from "vitest";
 
 const X3D = require ("..");
 

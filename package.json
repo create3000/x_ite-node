@@ -9,7 +9,7 @@
   "scripts": {
     "release": "node build/release.js",
     "test-script": "node tests/script.js",
-    "test": "jest"
+    "test": "vitest tests --run"
   },
   "repository": {
     "type": "git",
@@ -64,8 +64,8 @@
     "@eslint/js": "^10.0.1",
     "eslint": "^10.7.0",
     "globals": "^17.7.0",
-    "jest": "^30.4.2",
-    "shell-tools": "^1.1.9"
+    "shell-tools": "^1.1.9",
+    "vitest": "^4.1.10"
   },
   "allowScripts": {
     "fsevents@2.3.3": true,
