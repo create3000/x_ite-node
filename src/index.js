@@ -473,7 +473,7 @@ const glFunctions = Object .fromEntries ([
 ]
 .map (name => [name, Function .prototype]));
 
-X3D .Context .create = function (canvas, version, preserveDrawingBuffer, mobile)
+X3D .Context .create = function (/* canvas, preserveDrawingBuffer */)
 {
    const
       gl            = nogl (),
