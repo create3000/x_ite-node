@@ -172,7 +172,7 @@ Object .defineProperties (window,
 
                   if (result)
                   {
-                     // const mimeType = result [1] || "text/plain"";
+                     // const mimeType = result [1] || "text/plain"";
 
                      let data = parsedURL .href .substring (result [0] .length);
 

@@ -24,7 +24,7 @@ export default defineConfig ([
     },
   },
   {
-    files: ["test/**/*.js"],
+    files: ["tests/**/*.js"],
     languageOptions:
     {
       sourceType: "module",

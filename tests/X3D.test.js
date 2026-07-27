@@ -1,6 +1,6 @@
 import { expect, test } from "vitest";
 
-const X3D = require ("..");
+const X3D = require ("../src/index.js");
 
 test ("X3D", () =>
 {
