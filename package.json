@@ -1,6 +1,6 @@
 {
   "name": "x_ite-node",
-  "version": "2.1.16",
+  "version": "3.0.0",
   "description": "Pure Node.js Wrapper of X_ITE",
   "main": "src/index.js",
   "files": [
