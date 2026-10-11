@@ -58,7 +58,7 @@
     "node-localstorage": "^3.0.5",
     "nogl": "^1.1.0",
     "skia-canvas": "^3.0.8",
-    "x_ite": "^16.4.3"
+    "x_ite": "^16.5.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
